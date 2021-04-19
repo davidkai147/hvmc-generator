@@ -1,0 +1,28 @@
+{
+    "name": "congdo/hmvc-generator",
+    "description": "A small generator tool helps develop to create module HVMC pattern quickly",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cong Do",
+            "email": "dochauthanhcong147@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HMVCTools\\": "src/"
+        },
+        "files": [
+
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HMVCTools\\Providers\\ModuleServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
