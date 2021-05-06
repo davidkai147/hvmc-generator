@@ -1,13 +1,10 @@
 <?php
 
-namespace DummyNamespace;
+namespace DummyNamespace\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * DummyType: DummyClass
- */
 class DummyClass extends Seeder
 {
     /**
