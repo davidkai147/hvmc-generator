@@ -15,6 +15,7 @@ use HMVCTools\Console\Generators\MakeSeeder;
 use HMVCTools\Console\Generators\MakeSupport;
 use HMVCTools\Console\Generators\MakeView;
 use HMVCTools\Console\Generators\MakeViewComposer;
+use HMVCTools\Console\Generators\RunSeed;
 use Illuminate\Support\ServiceProvider;
 
 class ConsoleServiceProvider extends ServiceProvider
@@ -52,7 +53,8 @@ class ConsoleServiceProvider extends ServiceProvider
             MakeCommand::class,
             MakeViewComposer::class,
             MakeMigration::class,
-            MakeSeeder::class
+            MakeSeeder::class,
+            RunSeed::class
         ]);
     }
 }
