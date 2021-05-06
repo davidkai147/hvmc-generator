@@ -14,7 +14,7 @@ class MakeSeeder extends AbstractGenerator
      * @var string
      */
     protected $signature = 'module:make:seed
-    	{module : The alias of the module}
+    	{alias : The alias of the module}
     	{name : The class name}';
 
     /**
