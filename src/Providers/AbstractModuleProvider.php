@@ -2,7 +2,6 @@
 
 namespace HMVCTools\Providers;
 
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
@@ -104,17 +103,5 @@ abstract class AbstractModuleProvider extends ServiceProvider
             $result[$baseName] = $row;
         }
         return $result;
-    }
-
-    /**
-     * Register an additional directory of factories.
-     *
-     * @return void
-     */
-    protected function registerFactories()
-    {
-        if ($this->app->runningInConsole()) {
-            app(Factory::class)->load($this->getDir() . '/../../database/factories');
-        }
     }
 }
