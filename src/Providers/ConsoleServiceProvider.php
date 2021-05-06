@@ -11,6 +11,7 @@ use HMVCTools\Console\Generators\MakeModel;
 use HMVCTools\Console\Generators\CreateModule;
 use HMVCTools\Console\Generators\MakeProvider;
 use HMVCTools\Console\Generators\MakeRequest;
+use HMVCTools\Console\Generators\MakeSeeder;
 use HMVCTools\Console\Generators\MakeSupport;
 use HMVCTools\Console\Generators\MakeView;
 use HMVCTools\Console\Generators\MakeViewComposer;
@@ -51,6 +52,7 @@ class ConsoleServiceProvider extends ServiceProvider
             MakeCommand::class,
             MakeViewComposer::class,
             MakeMigration::class,
+            MakeSeeder::class
         ]);
     }
 }

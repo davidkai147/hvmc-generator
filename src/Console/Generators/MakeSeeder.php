@@ -38,7 +38,7 @@ class MakeSeeder extends AbstractGenerator
      */
     protected function getStub(): string
     {
-        return __DIR__ . '/partial_stubs/seeder.stub';
+        return __DIR__ . '/../../../resources/stubs/databases/seeders/seeder.stub';
     }
 
     /**
