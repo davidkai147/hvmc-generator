@@ -103,6 +103,21 @@ class RunSeed extends Command
         }
     }
 
+    protected function modulePath(): string
+    {
+        $acceptedTypes = [
+            'core',
+            'plugins',
+            'themes'
+        ];
+        foreach ($acceptedTypes as $type) {
+            if (is_dir(base_path('platform/' . $type . '/' . $this->moduleName))) {
+                return base_path('platform/' . $type . '/' . $this->moduleName . '/');
+            }
+        }
+        return base_path('platform/core/'. $this->moduleName . '/');
+    }
+
     /**
      * Seed the specified module.
      *
