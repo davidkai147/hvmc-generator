@@ -85,9 +85,6 @@ abstract class AbstractModuleProvider extends ServiceProvider
         foreach ($configs as $key => $row) {
             $this->mergeConfigFrom($row, $key);
         }
-
-        // Load factories
-        $this->registerFactories();
     }
 
     /**
