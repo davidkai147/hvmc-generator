@@ -101,10 +101,11 @@ class CreateModule extends Command
         }
 
         $this->container['description'] = $this->ask('Description of module:', '');
-        $this->container['namespace'] = $this->ask(
-            'Namespace of module:',
-            $this->acceptedTypes[$this->moduleType] . '\\' . Str::studly($this->container['alias'])
-        );
+//        $this->container['namespace'] = $this->ask(
+//            'Namespace of module:',
+//            $this->acceptedTypes[$this->moduleType] . '\\' . Str::studly($this->container['alias'])
+//        );
+        $this->container['namespace'] = $this->acceptedTypes[$this->moduleType] . '\\' . Str::studly($this->container['alias']);
     }
 
     protected function step2()
@@ -141,6 +142,8 @@ class CreateModule extends Command
             $composerJSON['name'] = $this->moduleType . '/' . $this->container['alias'];
             $composerJSON['description'] = $this->container['description'];
             $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\'] = 'src/';
+            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Seeders\\'] = 'database/seeders';
+            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Factories\\'] = 'database/factories';
             $composerJSON['require'] = new stdClass();
             $composerJSON['require-dev'] = new stdClass();
 
