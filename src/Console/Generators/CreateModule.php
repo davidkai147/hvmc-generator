@@ -142,8 +142,8 @@ class CreateModule extends Command
             $composerJSON['name'] = $this->moduleType . '/' . $this->container['alias'];
             $composerJSON['description'] = $this->container['description'];
             $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\'] = 'src/';
-            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Seeders\\'] = 'database/seeders';
-            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Factories\\'] = 'database/factories';
+            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Seeders\\'] = 'database/seeders/';
+            $composerJSON['autoload']['psr-4'][$this->container['namespace'] . '\\Database\\Factories\\'] = 'database/factories/';
             $composerJSON['require'] = new stdClass();
             $composerJSON['require-dev'] = new stdClass();
 

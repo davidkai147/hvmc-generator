@@ -58,7 +58,7 @@ abstract class AbstractModuleProvider extends ServiceProvider
         ], 'lang');
 
         $this->publishes([
-            $dir . '/../../config' => base_path('config'),
+            $dir . '/../../config' => config_path($moduleName . '.php'),
         ], 'config');
 
         $this->publishes([
