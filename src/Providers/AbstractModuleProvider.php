@@ -83,7 +83,7 @@ abstract class AbstractModuleProvider extends ServiceProvider
         $configs = $this->splitFilesWithBasename($this->app['files']->glob($this->getDir() . '/../../config/*.php'));
 
         foreach ($configs as $key => $row) {
-            $this->mergeConfigFrom($row, $key);
+            $this->mergeConfigFrom($row, $this->getModuleName());
         }
     }
 
