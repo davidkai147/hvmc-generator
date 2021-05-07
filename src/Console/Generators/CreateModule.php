@@ -20,7 +20,7 @@ class CreateModule extends Command
     /**
      * @var string
      */
-    protected $signature = 'module:create {alias : The alias of the module} {--autoload : Autoload module}';
+    protected $signature = 'module:create {alias : The alias of the module}';
 
     /**
      * @var string
@@ -147,11 +147,12 @@ class CreateModule extends Command
             $composerJSON['require'] = new stdClass();
             $composerJSON['require-dev'] = new stdClass();
 
-            if ($this->option('autoload')) {
-                $composerJSON['extra']['laravel']['providers'] = $this->container['namespace'] . '\\Providers\\ModuleServiceProvider';
-            } else {
-                $composerJSON['extra'] = new stdClass();
-            }
+//            if ($this->option('autoload')) {
+//                $composerJSON['extra']['laravel']['providers'] = $this->container['namespace'] . '\\Providers\\ModuleServiceProvider';
+//            } else {
+//                $composerJSON['extra'] = new stdClass();
+//            }
+            $composerJSON['extra']['laravel']['providers'] = $this->container['namespace'] . '\\Providers\\ModuleServiceProvider';
 
             $moduleJSON = [];
             $moduleJSON = array_merge($moduleJSON, $this->container);
