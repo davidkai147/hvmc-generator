@@ -54,7 +54,7 @@ abstract class AbstractModuleProvider extends ServiceProvider
         ], 'views');
 
         $this->publishes([
-            $dir . '/../../resources/lang' => base_path('resources/lang/' . $moduleName . '.php'),
+            $dir . '/../../resources/lang' => resource_path('lang'),
         ], 'lang');
 
         $this->publishes([
