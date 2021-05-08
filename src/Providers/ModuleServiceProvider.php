@@ -40,5 +40,8 @@ class ModuleServiceProvider extends AbstractModuleProvider
         parent::register();
 
         $this->app->register(ConsoleServiceProvider::class);
+
+        /*Load translations*/
+        $this->loadTranslationsFrom($this->getDir() . '/../../resources/lang', $this->getModuleName());
     }
 }
