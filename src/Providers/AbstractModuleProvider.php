@@ -53,9 +53,9 @@ abstract class AbstractModuleProvider extends ServiceProvider
             $dir . '/../../resources/views' => config('view.paths')[0] . '/vendor/' . $moduleName,
         ], 'views');
 
-//        $this->publishes([
-//            $dir . '/../../resources/lang' => base_path('resources/lang/vendor/' . $moduleName),
-//        ], 'lang');
+        $this->publishes([
+            $dir . '/../../resources/lang' => base_path('resources/lang/' . $moduleName . '.php'),
+        ], 'lang');
 
         $this->publishes([
             $dir . '/../../config' => config_path($moduleName . '.php'),
