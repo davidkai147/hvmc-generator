@@ -112,9 +112,10 @@ class CreateModule extends Command
     {
         $this->generatingModule();
 
-        if ($this->option('autoload')) {
-            $this->installModule();
-        }
+//        if ($this->option('autoload')) {
+//            $this->installModule();
+//        }
+        $this->installModule();
 
         $this->info("Your module generated successfully.");
         $this->info("Now, your module serving at: " . env('APP_URL') . "/{$this->container['alias']}");
