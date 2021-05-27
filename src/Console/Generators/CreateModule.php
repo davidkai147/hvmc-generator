@@ -178,7 +178,7 @@ class CreateModule extends Command
 
             // Migrations & Seeds
             Artisan::call('make:migration', [
-                'name' => $this->container['alias'],
+                'name' => 'create_table_' . $this->container['alias'],
                 '--path' => 'platform/' . $this->moduleType . '/' . $this->container['alias'] . '/database/migrations',
                 '--create' => $this->container['alias'],
             ]);

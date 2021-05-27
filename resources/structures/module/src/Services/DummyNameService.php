@@ -1,6 +1,7 @@
 <?php
 namespace DummyNamespace\Services;
 
+use Illuminate\Support\Facades\DB;
 use Plugins\DummyName\Http\Requests\CreateDummyNameRequest;
 use Plugins\DummyName\Http\Requests\UpdateDummyNameRequest;
 use Plugins\DummyName\Repositories\DummyNameRepository;
