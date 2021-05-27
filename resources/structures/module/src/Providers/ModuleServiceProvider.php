@@ -3,6 +3,9 @@
 namespace DummyNamespace\Providers;
 
 use HMVCTools\Providers\AbstractModuleProvider;
+use Illuminate\Support\Facades\Blade;
+use DummyNamespace\Repositories\DummyNameRepository;
+use DummyNamespace\Repositories\DummyNameRepositoryInterface;
 
 class ModuleServiceProvider extends AbstractModuleProvider
 {
@@ -30,6 +33,8 @@ class ModuleServiceProvider extends AbstractModuleProvider
     public function boot()
     {
         parent::boot();
+
+        Blade::componentNamespace('DummyName\\View\\Component', 'DummyAlias');
     }
 
     /**
@@ -42,6 +47,8 @@ class ModuleServiceProvider extends AbstractModuleProvider
         parent::register();
 
         $this->app->register(RouteServiceProvider::class);
-        $this->app->bind(DummyNameInterface::class, DummyNameRepository::class);
+        $this->app->bind(DummyNameRepositoryInterface::class, DummyNameRepository::class);
+
+        $this->loadTranslationsFrom($this->getDir() . '/../../resources/lang', $this->getModuleName());
     }
 }
