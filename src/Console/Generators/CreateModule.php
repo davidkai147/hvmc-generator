@@ -8,6 +8,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use stdClass;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Artisan;
 
 class CreateModule extends Command
 {
@@ -174,6 +175,13 @@ class CreateModule extends Command
 
                 rename($file, str_replace("DummyName", ucfirst($this->container['alias']), $file));
             }
+
+            // Migrations & Seeds
+            Artisan::call('make:migration', [
+                'name' => $this->container['alias'],
+                '--path' => 'platform/' . $this->moduleType . '/' . $this->container['alias'] . '/database/migrations',
+                '--create' => $this->container['alias'],
+            ]);
         } catch (Exception $exception) {
             $this->files->deleteDirectory($directory);
 

@@ -4,6 +4,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
 use Core\Base\Helpers\BaseHelper;
+use DummyNamespace\Http\Controllers\DummyNameController;
 
 /**
  * Admin routes
