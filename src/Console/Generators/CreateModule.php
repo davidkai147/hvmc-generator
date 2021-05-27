@@ -185,12 +185,14 @@ class CreateModule extends Command
     {
         $find = [
             'DummyNamespace',
+            'DummyName',
             'DummyAlias',
             'DummyType',
         ];
 
         $replace = [
             $this->container['namespace'],
+            ucfirst($this->container['alias']),
             $this->container['alias'],
             $this->moduleType,
         ];

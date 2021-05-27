@@ -27,7 +27,14 @@ class DummyNameController extends BaseController
      */
     public function index(Request $request)
     {
-        return view($this->moduleLowerCase . '::index');
+        // Set title as view
+        $this->module_title = trans($this->moduleLowerCase . '::module.list_title');
+        $this->assignViewShare('module_title', $this->module_title);
+
+        // Get data
+        $list = $this->DummyAliasService->paginate($request->all());
+
+        return view($this->moduleLowerCase . '::index', compact('list'));
     }
 
     /**
@@ -36,6 +43,10 @@ class DummyNameController extends BaseController
      */
     public function form()
     {
+        // Set title as view
+        $this->module_title = trans($this->moduleLowerCase . '::module.create_title');
+        $this->assignViewShare('module_title', $this->module_title);
+
         return view($this->moduleLowerCase . '::form');
     }
 
@@ -46,7 +57,13 @@ class DummyNameController extends BaseController
      */
     public function show($id)
     {
-        return view($this->moduleLowerCase . '::edit');
+        // Set title as view
+        $this->module_title = trans($this->moduleLowerCase . '::module.update_title');
+        $this->assignViewShare('module_title', $this->module_title);
+
+        $data = $this->DummyAliasService->getDetail($id);
+
+        return view($this->moduleLowerCase . '::edit', compact('data'));
     }
 
     /**
@@ -56,7 +73,14 @@ class DummyNameController extends BaseController
      */
     public function store(CreateDummyNameRequest $request): RedirectResponse
     {
+        $result = $this->DummyAliasService->create($request);
 
+        if (!empty($result)) {
+            return redirect()->route(config($this->moduleLowerCase . '.route.admin.list'))
+                ->with('success', trans($this->moduleLowerCase . '::module.create_success'));
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Co loi xay ra');
+        }
     }
 
     /**
@@ -67,6 +91,20 @@ class DummyNameController extends BaseController
      */
     public function update(UpdateDummyNameRequest $request, $id): RedirectResponse
     {
+        $result = $this->DummyAliasService->update($request, $id);
 
+        if (!empty($result)) {
+            return redirect()->route(config($this->moduleLowerCase . '.route.admin.list'))
+                ->with('success', trans($this->moduleLowerCase . '::module.update_success'));
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Co loi xay ra');
+        }
+    }
+
+    public function delete(DummyName DummyAlias)
+    {
+        if ($this->DummyAliasService->delete($DummyAlias)) {
+            return redirect()->route(config('DummyAlias.route.admin.list'))->with('success', 'Delete thành công');
+        }
     }
 }
