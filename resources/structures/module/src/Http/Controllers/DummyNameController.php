@@ -3,6 +3,15 @@
 namespace DummyNamespace\Http\Controllers;
 
 use Core\Base\Http\Controllers\BaseController;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Plugins\Demo\Http\Requests\CreateDummyNameRequest;
+use Plugins\Demo\Http\Requests\UpdateDummyNameRequest;
+use Plugins\Demo\Models\DummyName;
+use Plugins\Demo\Services\DummyNameService;
 
 class DummyNameController extends BaseController
 {
@@ -12,7 +21,7 @@ class DummyNameController extends BaseController
 
     /**
      * DummyNameController constructor.
-     * @param DummyNameService $categoryService
+     * @param DummyNameService $DummyAliasService
      */
     public function __construct(DummyNameService $DummyAliasService)
     {
@@ -101,7 +110,7 @@ class DummyNameController extends BaseController
         }
     }
 
-    public function delete(DummyName DummyAlias)
+    public function delete(DummyName $DummyAlias)
     {
         if ($this->DummyAliasService->delete($DummyAlias)) {
             return redirect()->route(config('DummyAlias.route.admin.list'))->with('success', 'Delete thành công');

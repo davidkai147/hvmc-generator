@@ -171,6 +171,8 @@ class CreateModule extends Command
                 $filePath = base_path('platform/' . $this->moduleType . '/' . $this->moduleFolderName . '/' . $file->getRelativePathname());
 
                 $this->files->put($filePath, $contents);
+
+                rename($file, str_replace("DummyName", ucfirst($this->container['alias']), $file));
             }
         } catch (Exception $exception) {
             $this->files->deleteDirectory($directory);
