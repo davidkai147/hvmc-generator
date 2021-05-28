@@ -34,7 +34,7 @@ class ModuleServiceProvider extends AbstractModuleProvider
     {
         parent::boot();
 
-        Blade::componentNamespace('DummyName\\View\\Component', 'DummyAlias');
+        Blade::componentNamespace('DummyNamespace\\View\\Component', 'DummyAlias');
     }
 
     /**

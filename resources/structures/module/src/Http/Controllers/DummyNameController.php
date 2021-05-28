@@ -8,10 +8,10 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Plugins\Demo\Http\Requests\CreateDummyNameRequest;
-use Plugins\Demo\Http\Requests\UpdateDummyNameRequest;
-use Plugins\Demo\Models\DummyName;
-use Plugins\Demo\Services\DummyNameService;
+use DummyNamespace\Http\Requests\CreateDummyNameRequest;
+use DummyNamespace\Http\Requests\UpdateDummyNameRequest;
+use DummyNamespace\Models\DummyName;
+use DummyNamespace\Services\DummyNameService;
 
 class DummyNameController extends BaseController
 {
